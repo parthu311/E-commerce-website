@@ -78,7 +78,9 @@ function MyState(props) {
             setLoading(false);
         }
     };
-
+    const edithandle = (item) => {
+      setProducts(item)
+    }
     // Update product in Firestore
     const updateProduct = async () => {
         setLoading(true);
@@ -96,6 +98,8 @@ function MyState(props) {
             setLoading(false);
         }
     };
+
+    
 
     // Delete product from Firestore
     const deleteProduct = async (item) => {
@@ -158,7 +162,7 @@ function MyState(props) {
     return (
         <MyContext.Provider value={{
             mode, toggleMode, loading, setLoading,
-            products, setProducts, addProduct, product,
+            products, setProducts, addProduct, product,edithandle,
             updateProduct, deleteProduct, order,
             user, searchkey, setSearchkey, filterType, setFilterType,
             filterPrice, setFilterPrice
