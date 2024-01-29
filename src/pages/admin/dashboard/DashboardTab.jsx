@@ -10,7 +10,6 @@ import { Link } from 'react-router-dom';
 function DashboardTab() {
     const context = useContext(myContext)
     const { mode, product } = context
-    console.log(product)
     let [isOpen, setIsOpen] = useState(false)
 
     function closeModal() {
@@ -86,7 +85,7 @@ function DashboardTab() {
                                                 </th>
                                             </tr>
                                         </thead>
-                                      {product && product.map((item,index)=>{
+                                      {product.map((item,index)=>{
                                         const {title,price,imageUrl, category,date} = item;
                                         return(
                                             <tbody key={index} className=''>
