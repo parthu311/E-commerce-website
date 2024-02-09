@@ -9,7 +9,7 @@ import {
 import './App.css'
 import Home from './pages/home/Home';
 import Order from './pages/Order/Order';
-import Cart from './pages/cart/cart';
+// import Cart from './pages/cart/cart';
 import Dashboard from './pages/admin/dashboard/Dashboard';
 import NoPage from './pages/nopage/nopage';
 import MyState from './context/data/myState';
@@ -20,6 +20,7 @@ import AddProduct from './pages/admin/pages/AddProduct';
 import UpdateProduct from './pages/admin/pages/UpdateProduct';
 import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
+import Cart from "./pages/cart/Cart";
 
   
 

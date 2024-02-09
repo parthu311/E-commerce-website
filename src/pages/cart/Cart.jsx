@@ -5,9 +5,8 @@ import Modal from '../../components/modal/Modal';
 import { useDispatch, useSelector } from 'react-redux';
 import { deleteFromCart } from '../../redux/cartSlice';
 import { toast } from 'react-toastify';
-import { addDoc, collection } from 'firebase/firestore';
 import { fireDB } from '../../firebase/FirebaseConfig';
-
+import { addDoc, collection } from 'firebase/firestore';
 
 
 function Cart() {
@@ -15,7 +14,7 @@ function Cart() {
   const context = useContext(myContext)
   const { mode } = context;
 
-  const dispatch = useDispatch()
+  const dispatch = useDispatch()  
 
   const cartItems = useSelector((state) => state.cart);
   console.log(cartItems)
@@ -54,86 +53,87 @@ function Cart() {
   const [pincode, setPincode] = useState("")
   const [phoneNumber, setPhoneNumber] = useState("")
 
-  const buyNow = async () => {
-    if (name === "" || address == "" || pincode == "" || phoneNumber == "") {
-      return toast.error("All fields are required", {
-        position: "top-center",
-        autoClose: 1000,
-        hideProgressBar: false,
-        closeOnClick: true,
-        pauseOnHover: true,
-        draggable: true,
-        progress: undefined,
-        theme: "colored",
-      })
-    }
-
-    const addressInfo = {
-      name,
-      address,
-      pincode,
-      phoneNumber,
-      date: new Date().toLocaleString(
-        "en-US",
-        {
-          month: "short",
-          day: "2-digit",
-          year: "numeric",
-        }
-      )
-    }
-
-    var options = {
-      key: "rzp_test_cNjVnvfTDrXeMi",
-      key_secret: "C3Cqsi8F9SZuMqssIn7lzam1",
-      amount: parseInt(grandTotal * 100),
-      currency: "INR",
-      order_receipt: 'order_rcptid_' + name,
-      name: "E-Bharat",
-      description: "for testing purpose",
-      handler: function (response) {
-        console.log(response)
-        toast.success('Payment Successful')
-
-        const paymentId = response.razorpay_payment_id;
-
-        const orderInfo = { 
-          cartItems,
-          addressInfo,
-          date: new Date().toLocaleString(
-            "en-US",
-            {
-              month: "short",
-              day: "2-digit",
-              year: "numeric",
-            }
-          ),
-          email: JSON.parse(localStorage.getItem("user")).user.email,
-          userid: JSON.parse(localStorage.getItem("user")).user.uid,
-          paymentId
-        }
-
-        try {
-
-          const orderRef = collection(fireDB, 'order');
-          addDoc(orderRef, orderInfo);
-
-        } catch (error) {
-          console.log(error)
-        }
-      },
-
-      theme: {
-        color: "#3399cc"
-      }
-    };
-
-    var pay = new window.Razorpay(options);
-    pay.open();
-    console.log(pay)
-
-
+const buyNow = async () => {
+  if (name === "" || address == "" || pincode == "" || phoneNumber == "") {
+    return toast.error("All fields are required", {
+      position: "top-center",
+      autoClose: 1000,
+      hideProgressBar: false,
+      closeOnClick: true,
+      pauseOnHover: true,
+      draggable: true,
+      progress: undefined,
+      theme: "colored",
+    })
   }
+
+  const addressInfo = {
+    name,
+    address,
+    pincode,
+    phoneNumber,
+    date: new Date().toLocaleString(
+      "en-US",
+      {
+        month: "short",
+        day: "2-digit",
+        year: "numeric",
+      }
+    )
+  }
+
+  var options = {
+    key: "rzp_test_cNjVnvfTDrXeMi",
+    key_secret: "C3Cqsi8F9SZuMqssIn7lzam1",
+    amount: parseInt(grandTotal * 100),
+    currency: "INR",
+    order_receipt: 'order_rcptid_' + name,
+    name: "E-Bharat",
+    description: "for testing purpose",
+    handler: function (response) {
+      console.log(response)
+      toast.success('Payment Successful')
+
+      const paymentId = response.razorpay_payment_id;
+
+      const orderInfo = { 
+        cartItems,
+        addressInfo,
+        date: new Date().toLocaleString(
+          "en-US",
+          {
+            month: "short",
+            day: "2-digit",
+            year: "numeric",
+          }
+        ),
+        email: JSON.parse(localStorage.getItem("user")).user.email,
+        userid: JSON.parse(localStorage.getItem("user")).user.uid,
+        paymentId
+      }
+
+      try {
+
+        const orderRef = collection(fireDB, 'order');
+        addDoc(orderRef, orderInfo);
+
+      } catch (error) {
+        console.log(error)
+      }
+    },
+
+    theme: {
+      color: "#3399cc"
+    }
+  };
+
+  var pay = new window.Razorpay(options);
+  pay.open();
+  console.log(pay)
+
+
+}
+
   return (
     <Layout >
       <div className="h-screen bg-gray-100 pt-5 mb-[60%] " style={{ backgroundColor: mode === 'dark' ? '#282c34' : '', color: mode === 'dark' ? 'white' : '', }}>
