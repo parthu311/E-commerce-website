@@ -21,6 +21,7 @@ import UpdateProduct from './pages/admin/pages/UpdateProduct';
 import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import Cart from "./pages/cart/Cart";
+import Allproducts from "./pages/allproducts/AllProducts";
 
   
 
@@ -40,14 +41,19 @@ function App() {
           <Route path="/dashboard" element={
             <ProtectedRoutesForAdmin><Dashboard /></ProtectedRoutesForAdmin>
           } />
-          <Route path="/productinfo" element={<ProductInfo />} />
+          <Route path="/productinfo/:id" element={<ProductInfo />} />
           <Route path="/login" element={<Login />} />
           <Route path="/signup" element={<Signup />} />
           <Route path="/addproduct" element={
-            <ProtectedRoutesForAdmin><AddProduct /></ProtectedRoutesForAdmin>} />
+            <ProtectedRoutesForAdmin>
+              <AddProduct />
+            </ProtectedRoutesForAdmin>}
+             />
           <Route path="/updateproduct" element={
             <ProtectedRoutesForAdmin><UpdateProduct /></ProtectedRoutesForAdmin>} />
           <Route path="/*" element={<NoPage />} />
+          <Route path="/allproducts" element={<Allproducts />} />
+
         </Routes>
         <ToastContainer/>
       </Router>
