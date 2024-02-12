@@ -39,7 +39,7 @@ function ProductCard() {
                 <div className="flex flex-wrap -m-4">
                     {product.filter((obj) => obj.title.toLowerCase().includes(searchkey))
                         .filter((obj) => obj.category.toLowerCase().includes(filterType))
-                        .filter((obj) => obj.price.includes(filterPrice)).map((item, index) => {
+                        .filter((obj) => obj.price.includes(filterPrice)).slice(0,8).map((item, index) => {
                             const { title, price, description, imageUrl } = item;
                             return (
                                 <div key={index} onClick={()=> window.location.href = `/productinfo/${item.id}`}  className="p-4 md:w-1/4  drop-shadow-lg " >
