@@ -32,9 +32,9 @@ function App() {
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/order" element={
-            <ProtectedRoutes>
+            // <ProtectedRoutes>
               <Order />
-            </ProtectedRoutes>
+            // </ProtectedRoutes>
           } />
           <Route path="/cart" element={<Cart />} />
           <Route path="/dashboard" element={
