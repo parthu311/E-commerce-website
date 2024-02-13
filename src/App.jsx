@@ -22,6 +22,10 @@ import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import Cart from "./pages/cart/Cart";
 import Allproducts from "./pages/allproducts/AllProducts";
+import Return from "./components/return/Return";
+import AboutUs from "./components/aboutus/AboutUs";
+import ContactUs from "./components/contactUs/ContactUs";
+import Privacy from "./components/Privacy/Privacy";
 
   
 
@@ -53,7 +57,10 @@ function App() {
             <ProtectedRoutesForAdmin><UpdateProduct /></ProtectedRoutesForAdmin>} />
           <Route path="/*" element={<NoPage />} />
           <Route path="/allproducts" element={<Allproducts />} />
-
+          <Route path="/return" element={<Return />} />
+          <Route path="/aboutus" element={<AboutUs/>} />
+          <Route path="/contactus" element={<ContactUs/>} />
+          <Route path="/privacy" element={<Privacy/>} />
         </Routes>
         <ToastContainer/>
       </Router>

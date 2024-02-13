@@ -1,5 +1,5 @@
-import React from 'react'
-import bgimg from "../../assets/bg2.jpg"
+// import React from 'react'
+// import bgimg from "../../assets/bg2.jpg"
 
 const HeroSection = () => {
   return (
