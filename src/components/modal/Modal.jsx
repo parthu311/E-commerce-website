@@ -4,6 +4,7 @@ import { Fragment, useState } from 'react'
 export default function Modal({ name, address, pincode, phoneNumber, setName, setAddress, setPincode, setPhoneNumber, buyNow }) {
     let [isOpen, setIsOpen] = useState(false)
 
+
     function closeModal() {
         setIsOpen(false)
     }
@@ -14,7 +15,7 @@ export default function Modal({ name, address, pincode, phoneNumber, setName, se
 
     return (
         <>
-            <div className="  text-center rounded-lg text-white font-bold">
+            <div className="  text-center rounded-lg text-white font-bold" style={{'background':'#1A202C'}}>
                 <button
                     type="button"
                     onClick={openModal}
@@ -76,7 +77,7 @@ export default function Modal({ name, address, pincode, phoneNumber, setName, se
                                                         </div>
 
                                                     </form>
-                                                    <button onClick={()=>{buyNow(); closeModal()}} type="button" className="focus:outline-none w-full text-white bg-violet-600 hover:bg-violet-800  outline-0 font-medium rounded-lg text-sm px-5 py-2.5 ">Order Now</button>
+                                                    <button onClick={()=>{buyNow(); closeModal()}} type="button" className="focus:outline-none w-full text-white bg-violet-600 hover:bg-violet-800  outline-0 font-medium rounded-lg text-sm px-5 py-2.5 " style={{background:'#1A202C'}}>Order Now</button>
 
                                                 </div>
                                             </div>

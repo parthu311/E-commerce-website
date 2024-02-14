@@ -26,6 +26,7 @@ import Return from "./components/return/Return";
 import AboutUs from "./components/aboutus/AboutUs";
 import ContactUs from "./components/contactUs/ContactUs";
 import Privacy from "./components/Privacy/Privacy";
+import Profile from "./pages/profile/Profile";
 
   
 
@@ -61,6 +62,7 @@ function App() {
           <Route path="/aboutus" element={<AboutUs/>} />
           <Route path="/contactus" element={<ContactUs/>} />
           <Route path="/privacy" element={<Privacy/>} />
+          <Route path="/profile" element={<Profile/>} />
         </Routes>
         <ToastContainer/>
       </Router>

@@ -5,6 +5,7 @@ import Layout from '../../components/layout/Layout'
 import myContext from '../../context/data/myContext'
 import { useDispatch, useSelector } from 'react-redux'
 import { addToCart } from '../../redux/cartSlice'
+import { toast } from 'react-toastify'
 
 function Allproducts() {
   const context = useContext(myContext)
@@ -18,6 +19,7 @@ function Allproducts() {
   const addCart = (product)=> {
       dispatch(addToCart(product));
       toast.success('add to cart');
+      
 
   }
 

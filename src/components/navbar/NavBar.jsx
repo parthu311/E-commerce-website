@@ -62,26 +62,27 @@ export default function Navbar() {
                 </div>
                 <div className="space-y-6 border-t border-gray-200 px-4 py-6">
 
-                  <Link to={'/allproducts'} className="text-sm font-medium text-gray-900 " style={{ color: mode === 'dark' ? 'white' : '', }}>
+                  <Link to={'/allproducts'} className="text-lg font-medium text-gray-900 " style={{ color: mode === 'dark' ? 'white' : '', }}>
                     All Products
                   </Link>
                   <div className="flow-root">
-                    <Link to={'/order'} style={{ color: mode === 'dark' ? 'white' : '', }} className="-m-2 block p-2 font-medium text-gray-900">
+                    <Link to={'/order'} style={{ color: mode === 'dark' ? 'white' : '', }} className="m-2 text-lg font-medium text-gray-900">
                       Order
                     </Link>
                   </div>
 
-                  {user?.user?.email === 'parthradadiya433@gmail.com' ? <div className="flow-root">
-                    <Link to={'/dashboard'} className="-m-2 block p-2 font-medium text-gray-900" style={{ color: mode === 'dark' ? 'white' : '', }}>
-                      admin
-                    </Link>
-                  </div> : ""}
+                  {user?.user?.email === 'parthradadiya433@gmail.com'?
+                   <Link to={'/dashboard'} className="m-2 text-lg font-medium text-gray-900" style={{ color: mode === 'dark' ? 'white' : '', }}>
+                    Admin
+                  </Link> : ""
+                }
+                 
 
-                  {user ? <div className="flow-root">
-                    <a onClick={logout} className="-m-2 block p-2 font-medium text-gray-900 cursor-pointer" style={{ color: mode === 'dark' ? 'white' : '', }}>
-                      Logout
-                    </a>
-                  </div> : ""}
+                  {user ? <a onClick={logout} className="m-2 text-lg font-medium text-gray-900 cursor-pointer  " style={{ color: mode === 'dark' ? 'white' : '', }}>
+                    Logout
+                  </a> : <Link to={'/signup'} className="m-2 text-lg font-medium text-gray-900 cursor-pointer  " style={{ color: mode === 'dark' ? 'white' : '', }}>
+                    Signup
+                  </Link>}
                   <div className="flow-root">
                     <Link to={'/'} className="-m-2 block p-2 font-medium text-gray-900 cursor-pointer">
                       <img
@@ -174,12 +175,16 @@ export default function Navbar() {
                   </a>
                 </div>
                 <div className="hidden lg:ml-8 lg:flex">
-                  <a href="#" className="flex items-center text-gray-700 ">
-                    <img
+                <Link to={'/profile'} className="text-sm font-medium text-gray-700 " style={{ color: mode === 'dark' ? 'white' : '', }}>
+                <img
                       className="inline-block w-10 h-10 rounded-full"
                       src="https://cdn-icons-png.flaticon.com/512/21/21104.png"
-                      alt="Dan_Abromov" />
-                  </a>
+                      alt="Dan_Abromov" /> 
+                  </Link>
+                  
+                  {/* <a href="#" className="flex items-center text-gray-700 "> */}
+                    
+                  {/* </a> */}
                 </div>
 
                 {/* Search */}

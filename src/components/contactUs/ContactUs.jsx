@@ -7,7 +7,7 @@ const ContactUs = () => {
     <>
     <Navbar/>
     <div className="container bg-gray-200 p-4 rounded-lg shadow-md">
-  <h1>Contact Us !</h1>
+<h1>Contact Us !</h1>
   <h2 style={{ textAlign: "center" }}>
     Welcome to <span id="W_Name"> E-Bharat</span>!
   </h2>
